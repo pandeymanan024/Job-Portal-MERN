@@ -1,0 +1,16 @@
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    width: 400px; 
+    height: 300px
+}
+
+/*.grid {
+  width: 500px;
+  height: 200px;
+}*/
+
+body { padding-top:30px; }
+
+.navbar-right {
+  margin-right: 0px;
+}
