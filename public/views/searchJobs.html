@@ -1,46 +1,83 @@
-<form class="form-inline" role="form">
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <form class="form-inline"
+        role="form">
     <div class="form-group">
-      <label class="sr-only" for="description">Description:</label>
-      <input type="text" class="form-control" ng-model="searchParams.description" name="description" id="description" placeholder="Job description">
+      <label class="sr-only"
+           for="description">Description:</label> <input class="form-control"
+           id="description"
+           name="description"
+           ng-model="searchParams.description"
+           placeholder="Job description"
+           type="text">
     </div>
     <div class="form-group">
-        <label class="sr-only" for="location">Location:</label>
-        <input type="text" class="form-control" ng-model="searchParams.location" name="location" id="location" placeholder="Job location">
+      <label class="sr-only"
+           for="location">Location:</label> <input class="form-control"
+           id="location"
+           name="location"
+           ng-model="searchParams.location"
+           placeholder="Job location"
+           type="text">
     </div>
     <div class="form-group">
-        <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" ng-model="searchParams.partTime" name="partTime" id="dropdownMenu1" data-toggle="dropdown" data-target="#" aria-expanded="true">
-                Job Type<span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                <li role="presentation" ng-click="searchParams.partTime = no"><a role="menuitem" tabindex="-1" href="#">Only Full-time</a></li>
-                <li role="presentation" ng-click="searchParams.partTime = yes"><a role="menuitem" tabindex="-1" href="#">Full/Part time</a></li>
-            </ul>
-        </div>
-    </div>
-    <button class="btn btn-primary" type="button" ng-click="searchJobs()">Search</button>
-</form>
-
-<table class="table table-striped">
+      <div class="dropdown">
+        <button aria-expanded="true"
+             class="btn btn-default dropdown-toggle"
+             data-target="#"
+             data-toggle="dropdown"
+             id="dropdownMenu1"
+             name="partTime"
+             ng-model="searchParams.partTime"
+             type="button">Job Type</button>
+        <ul aria-labelledby="dropdownMenu1"
+            class="dropdown-menu"
+            role="menu">
+          <li ng-click="searchParams.partTime = no"
+              role="presentation">
+            <a href="#"
+                role="menuitem"
+                tabindex="-1">Only Full-time</a>
+          </li>
+          <li ng-click="searchParams.partTime = yes"
+              role="presentation">
+            <a href="#"
+                role="menuitem"
+                tabindex="-1">Full/Part time</a>
+          </li>
+        </ul>
+      </div>
+    </div><button class="btn btn-primary"
+          ng-click="searchJobs()"
+          type="button">Search</button>
+  </form>
+  <table class="table table-striped">
     <thead>
-        <tr>
-            <th>Title</th>
-            <th>Posted on</th>
-            <th>Location</th>
-            <th>Type</th>
-            <th>Company</th>
-            <th>Details</th>
-        </tr>
+      <tr>
+        <th>Title</th>
+        <th>Posted on</th>
+        <th>Location</th>
+        <th>Type</th>
+        <th>Company</th>
+        <th>Details</th>
+      </tr>
     </thead>
     <tbody id="classes">
-        <tr ng-repeat="job in jobs">
-            <td class="title">{{job.title}}</td>
-            <td class="createdOn">{{job.created_on}}</td>
-            <td class="location">{{job.location}}</td>
-            <td class="type">{{job.type}}</td>
-            <td class="company">{{job.company}}</td>
-            <td class="details"><a href="/viewJobDetails/{{job.id}}">Details</a></td>
-        </tr>
+      <tr ng-repeat="job in jobs">
+        <td class="title">{{job.title}}</td>
+        <td class="createdOn">{{job.created_on}}</td>
+        <td class="location">{{job.location}}</td>
+        <td class="type">{{job.type}}</td>
+        <td class="company">{{job.company}}</td>
+        <td class="details">
+          <a href="/viewJobDetails/{{job.id}}">Details</a>
+        </td>
+      </tr>
     </tbody>
-</table>
-
+  </table>
+</body>
+</html>
