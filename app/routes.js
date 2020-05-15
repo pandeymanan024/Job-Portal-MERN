@@ -16,7 +16,7 @@ module.exports = function(job, passport) {
     // frontend routes =========================================================
     // route to handle all angular requests
 
-    job.get('/', requirelogin, function(req, res) {
+    job.get('/', function(req, res) {
         if (req.user) {
             res.sendfile('./public/index.html');
         } else {
@@ -51,6 +51,7 @@ module.exports = function(job, passport) {
         //Get json for given request
         getJSON(api_url, function(statusCode, result) {
             res.send(result);
+            //res.send(statusCode);
         });
     });
 

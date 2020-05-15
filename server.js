@@ -40,7 +40,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // parse application/x-www-f
 app.use(cookieParser());
 app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
 app.use(express.static(__dirname + '/public')); // set the static files location /public/img will be /img for users
-app.use(session({ secret: 'mananpandeyjobs' })); // session secret
+app.use(session({ secret: 'mananpandeyjobs', resave: true, saveUninitialized: true })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(morgan('dev')); // log every request to the console
@@ -58,22 +58,22 @@ app.listen(PORT, () => {
 })
 exports = module.exports = app; // expose app
 
-var defaultUser = new models.User({
-    firstName: "Manan",
-    lastName: "Pandey",
-    username: "manan",
-    password: "password",
-    email: "emai"
-});
+// var defaultUser = new models.User({
+//     firstName: "Manan",
+//     lastName: "Pandey",
+//     username: "manan",
+//     password: "password",
+//     email: "email@email.com"
+// });
 
-userDao.findByUsername("Manan", function(result) {
-    if (result == null) {
-        defaultUser.password = defaultUser.generateHash(defaultUser.password);
-        userDao.saveUser(defaultUser, function(dummy) {});
-    } else {
-        defaultUser = result;
-        console.log(result);
-    }
-});
+// userDao.findByUsername("manan", function(result) {
+//     if (result == null) {
+//         defaultUser.password = defaultUser.generateHash(defaultUser.password);
+//         userDao.saveUser(defaultUser, function(dummy) {});
+//     } else {
+//         defaultUser = result;
+//         console.log(result);
+//     }
+// });
 
-console.log(defaultUser);
+//console.log(defaultUser);
