@@ -1,7 +1,7 @@
 .gridStyle {
-    border: 1px solid rgb(212,212,212);
-    width: 400px; 
-    height: 300px
+  border: 1px solid rgb(212, 212, 212);
+  width: 400px;
+  height: 300px
 }
 
 /*.grid {
@@ -9,7 +9,10 @@
   height: 200px;
 }*/
 
-body { padding-top:30px; }
+body {
+  padding-top: 30px;
+  background-color: #adefd1ff;
+}
 
 .navbar-right {
   margin-right: 0px;
