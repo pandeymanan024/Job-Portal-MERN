@@ -66,6 +66,10 @@ module.exports = function(job, passport) {
         });
     });
 
+    job.get('/profile', function(req, res) {
+        //Todo
+    })
+
 
 
     /* Database routes for job*/
