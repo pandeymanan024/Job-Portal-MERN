@@ -18,14 +18,9 @@ angular.module('GetJobs').config(['$routeProvider', '$locationProvider', functio
             templateUrl: 'views/viewJobDetails.html',
             controller: 'ViewJobDetailsController'
         })
-        .when('/login', {
-            templateUrl: require(Path)
-
-        }, console.log(Path))
         .otherwise({
-                redirectTo: '/login'
-            },
-            window.location.reload());
+            redirectTo: '/login'
+        });
 
 
     $locationProvider.html5Mode(true);
