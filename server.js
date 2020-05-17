@@ -58,22 +58,22 @@ app.listen(PORT, () => {
 })
 exports = module.exports = app; // expose app
 
-var defaultUser = new models.User({
-    firstName: "Manan",
-    lastName: "Pandey",
-    username: "manan",
-    password: "password",
-    email: "email@email.com"
-});
+// var defaultUser = new models.User({
+//     firstName: "Manan",
+//     lastName: "Pandey",
+//     username: "manan",
+//     password: "password",
+//     email: "email@email.com"
+// });
 
-userDao.findByUsername("manan", function(result) {
-    if (result == null) {
-        defaultUser.password = defaultUser.generateHash(defaultUser.password);
-        userDao.saveUser(defaultUser, function(dummy) {});
-    } else {
-        defaultUser = result;
-        console.log(result);
-    }
-});
+// userDao.findByUsername("manan", function(result) {
+//     if (result == null) {
+//         defaultUser.password = defaultUser.generateHash(defaultUser.password);
+//         userDao.saveUser(defaultUser, function(dummy) {});
+//     } else {
+//         defaultUser = result;
+//         console.log(result);
+//     }
+// });
 
-console.log(defaultUser);
+// console.log(defaultUser);

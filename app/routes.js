@@ -218,7 +218,6 @@ module.exports = function(job, passport) {
 
 
     /* Generic routes */
-
     job.get('/index', function(req, res) {
         if (req.user) {
             res.sendFile(reqPath + '/public/index.html');
