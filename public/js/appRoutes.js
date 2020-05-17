@@ -1,5 +1,5 @@
 angular.module('GetJobs').config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-
+    let Path = path.join(__dirname, '../')
     $routeProvider
 
         .when('/viewMyJobs', {
@@ -18,9 +18,15 @@ angular.module('GetJobs').config(['$routeProvider', '$locationProvider', functio
             templateUrl: 'views/viewJobDetails.html',
             controller: 'ViewJobDetailsController'
         })
+        .when('/login', {
+            templateUrl: require(Path)
+
+        }, console.log(Path))
         .otherwise({
-            redirectTo: '/searchJobs'
-        });
+                redirectTo: '/login'
+            },
+            window.location.reload());
+
 
     $locationProvider.html5Mode(true);
 

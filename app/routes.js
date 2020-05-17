@@ -9,18 +9,19 @@ var models = require('./models/models.js');
 const requirelogin = require('../middleware/requirelogin')
 var Client = require('node-rest-client').Client;
 var client = new Client();
+var path = require('path')
 
 module.exports = function(job, passport) {
 
-
-    // frontend routes =========================================================
-    // route to handle all angular requests
+    let reqPath = path.join(__dirname, '../')
+        // frontend routes =========================================================
+        // route to handle all angular requests
 
     job.get('/', function(req, res) {
-        if (req.user) {
-            res.sendfile('./public/index.html');
+        if (req.user._id) {
+            res.sendfile(reqPath + '/public/index.html');
         } else {
-            res.sendfile('./public/views/login.html');
+            res.sendfile(reqPath + '/public/views/login.html');
         }
     });
 
@@ -181,7 +182,7 @@ module.exports = function(job, passport) {
     // GET login page
     job.get('/login', function(req, res) {
         // Display the Login page with any flash message, if any
-        res.sendfile('./public/views/login.html');
+        res.sendFile(reqPath + '/public/views/login.html');
     });
 
     // Handle Login POST
@@ -211,7 +212,7 @@ module.exports = function(job, passport) {
     //Handle logout request
     job.get('/logout', function(req, res) {
         req.logout();
-        res.redirect('/');
+        res.redirect('/login');
     });
 
 
@@ -220,17 +221,17 @@ module.exports = function(job, passport) {
 
     job.get('/index', function(req, res) {
         if (req.user) {
-            res.sendfile('./public/index.html');
+            res.sendFile(reqPath + '/public/index.html');
         } else {
-            res.sendfile('./public/views/login.html');
+            res.sendFile(reqPath + '/public/views/login.html');
         }
     });
 
     job.get('*', function(req, res) {
         if (req.user) {
-            res.sendfile('./public/index.html');
+            res.sendFile(reqPath + '/public/index.html');
         } else {
-            res.sendfile('./public/views/login.html');
+            res.sendFile(reqPath + '/public/views/login.html');
         }
     });
 };
